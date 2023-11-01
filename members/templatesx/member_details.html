@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Member Details</title>
+</head>
+<body>
+    <h1>Member Details</h1>
+    <p>First Name: {{ member.firstname }}</p>
+    <p>Last Name: {{ member.lastname }}</p>
+    <p>Phone: {{ member.phone }}</p>
+    <p>Joined Date: {{ member.joined_date }}</p>
+    <img src="{{ member.profile_image.url }}" alt="{{ member.firstname }} {{ member.lastname }} Image">
+</body>
+</html>

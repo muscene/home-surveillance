@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Recognition</title>
+</head>
+<body>
+    <h1>Face Recognition Result</h1>
+
+    <div>
+        <img src="data:image/jpeg;base64,{{ processed_frame }}" alt="Processed Frame">
+    </div>
+
+    <h2>Recognized Faces:</h2>
+    <ul>
+        <li>Person 1: John Doe</li>
+        <li>Person 2: Jane Smith</li>
+        <!-- Add more recognized faces here -->
+    </ul>
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

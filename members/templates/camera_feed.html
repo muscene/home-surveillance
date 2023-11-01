@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+  <title>family </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <body>
+        <!-- Sidebar -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="javascript:void(0)">Family</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                
+                  <li class="nav-item">
+                    <a class="nav-link" href="/members">Home </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">Analysis</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="text" placeholder="Search">
+                  <button class="btn btn-primary" type="button">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav> 
+          <div class="container mt-3">
+            {% comment %} <h2>Example of Jumbotron</h2> {% endcomment %}
+            <div class="row">
+            </div>
+            <div class="mt-4 p-5 bg-warning text-primary rounded">
+            <h1>  Dashboard</h1> 
+              {% comment %} <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p>  {% endcomment %}
+            </div>
+    
+             
+                    <div class="row">
+     
+
+                        <div class="col mb-4 mt-">
+                            <div class="card card-btn-primary accordion-body">
+                                <img src="..." class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">DETECTED Family Member</h5>
+                                    <p class="card-text"></p>
+                                           <img src="{% url 'camera_feed' %}" width="640" height="480">
+
+                                        </div>  
+                                    </div>
+                                    </div>
+                                </div>    </div>
+                                </div>
+</body>
+</html><footer class="bg-dark text-white text-center py-3">
+    &copy; VRT
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <img id="camera-feed" src="" alt="Camera Feed" style="width: 640px; height: 480px;">
+    <script>
+        $(document).ready(function() {
+            var cameraFeed = document.getElementById('camera-feed');
+            var socket = new WebSocket('ws://' + window.location.host + '/ws/camera_feed/');
+
+            socket.onmessage = function(e) {
+                cameraFeed.src = 'data:image/jpg;base64,' + e.data;
+            };
+        });
+    </script>
+</body>
+
+</html>

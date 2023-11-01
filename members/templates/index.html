@@ -1,0 +1,259 @@
+<html lang="en">
+<head>
+  <title>fAMILY</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        width: 300px;
+        display: inline-block;
+    }
+
+    .card img {
+        max-width: 100%;
+    }
+    #imageContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    img {
+        max-width: 200px;
+        max-height: 200px;
+        margin: 5px;
+    }
+</style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/members/">CF</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/members/read-csv/">SECURITY-REPORT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/gallery/">Unrecognized Faces</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/gallery/upload/">Upload image</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/members/read-csv/">Detect</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="/members/camera-feed/">Open camera</a>
+                  </li> 
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="text" placeholder="Search">
+              <button class="btn btn-primary" type="button">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav> 
+      <div class="container mt-3">
+        {% comment %} <h2>Example of Jumbotron</h2> {% endcomment %}
+   
+        <div class="mt-4 p-5 bg-warning text-primary rounded">
+
+        <h1>  Dashboard</h1> 
+          {% comment %} <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p>  {% endcomment %}
+        </div>
+
+         
+<div class="row">
+    <div class="col-sm-9"> 
+        <div class="row">
+            <h1 class="my-4">HOUSE Member</h1>
+            <table id="example" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>L-Name</th>
+                                <th>F-Name</th>
+                                <th>option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for x in mymembers %}           
+                            <tr>
+                                <td>{{ x.lastname }}</td> 
+                                <td>{{ x.firstname }}</td> 
+
+                                <td><p><a href="details/{{ x.id }}">View Profile</a></p></td>
+                            </tr>
+                            {% endfor %}
+                        
+                            <!-- Add more rows for additional employees -->
+                        </tbody>
+                    </table>
+                </div>  
+            
+            {% comment %} </div>   {% endcomment %}
+
+            <div class="row ">
+                <h3 > MY HOUSE MEMBERS  INFORMATION</h3>
+                <hr>
+            {% for member in mymembers %}
+            
+            {% comment %} <div class="col m-2 bg-dark-"> {% endcomment %}
+            
+                <div class="card" style="width:200px;height:255px">
+                    {% comment %} <img class="card-img-top" src="img_avatar1.png" alt="Card image"> {% endcomment %}
+                    <img src="{{member.profile_image.url }}" class="rounded tox-dialog--width-lg" height="80%" width="100%" alt="">
+                    {% comment %} <div class="card-body"> {% endcomment %}
+                    {% comment %} <h5 class="card-title">Phone: {{ member.phone }}</h5> {% endcomment %}
+                    <p class="card-text">{{ member.firstname }} {{ member.lastname }}   <span class="badge bg-info">*</span></p> 
+                    
+                    {% comment %} <a href="#" class="btn btn-primary">See Profile</a> {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
+                </div>
+            {% endfor %}
+
+        
+            <!--Card3-->
+  
+
+    </div>
+</div>
+    {% comment %} <div class="col-sm-4  bg-dark text-light rounded-2 m-1"> {% endcomment %}
+              
+                    <div class="col-sm-4  bg-dark text-light rounded-2 m-1 card card-btn-primary accordion-body bg-danger-light">
+                        {% comment %} <img src="..." class="card-img-top" alt=""> {% endcomment %}
+                        <div class="card-body">
+                            <h5 class="card-title">UN RECOGONISED DETECTED </h5>
+                            <p class="card-text"></p>
+                        
+
+                               {% comment %} <table class="table" id="example" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        {% comment %} <th>Image</th> {% endcomment %}
+                                        {% comment %} <th>L-Name</th> {% endcomment %} 
+                       
+                                    {% comment %} {% for mymemberc in mymembers %}     {% endcomment %}
+                                    
+                                    {% comment %} <img src="{{mymemberc.profile_image.url}}" class="img-fluid ${12|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"  width="100%" height="100%%"alt="">        {% endcomment %}
+                                {% comment %} </i> {% endcomment %}
+                                    {% comment %} <img id="myImage" src="path_to_your_image.jpg" alt="Your Image"> {% endcomment %}
+                                   {% comment %} // <tr> {% endcomment %}
+                                        {% comment %} <td>
+                                           <i class="fas fa-image">          
+                                                <img src="{{mymemberc.profile_image.url}}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">       
+                                           </i>
+                                           
+                                    <img id="myImage" src="path_to_your_image.jpg" alt="Your Image">
+                                        </td> {% endcomment %}
+                                        {% comment %} <td><p><a href="details/{{ mymemberc.id }}">View </a></p></td>
+                                    </tr> {% endcomment %}
+                                    {% comment %} {% endfor %} {% endcomment %}
+                                   
+                                    {% comment %} <img id="myImage" src="path_to_your_image.jpg" alt="Your Image"> {% endcomment %}
+                                    <!-- Add more rows for additional employees -->
+                                {% comment %} </tbody>
+                            </table> {% endcomment %}
+            
+                            {% comment %} <video id="camera-feed" autoplay></video> {% endcomment %}
+                           
+                                
+                                <span class="badge bg-success">Success</span>
+                                <span class="badge bg-danger">Danger</span>
+                                <span class="badge bg-warning">Warning</span>
+                                
+                              
+            
+                        </div>
+            
+
+                        </div>
+                    </div>
+                {% comment %} </div>
+            </div> {% endcomment %}
+                <!--Card2-->
+                <div class="row bg-dark text-light">
+                    <h1 > Recent Granted Access</h1>
+                    <hr>
+                {% for member in mymembers %}
+                
+                {% comment %} <div class="col m-2 bg-dark-"> {% endcomment %}
+                 
+                    <div class="card" style="width:200px;height:255px">
+                        {% comment %} <img class="card-img-top" src="img_avatar1.png" alt="Card image"> {% endcomment %}
+                        <img src="{{member.profile_image.url }}" class="rounded tox-dialog--width-lg" height="80%" width="100%" alt="">
+                        {% comment %} <div class="card-body"> {% endcomment %}
+                          {% comment %} <h5 class="card-title">Phone: {{ member.phone }}</h5> {% endcomment %}
+                          <p class="card-text">{{ member.firstname }} {{ member.lastname }}   <span class="badge bg-info">*</span></p> 
+                        
+                          {% comment %} <a href="#" class="btn btn-primary">See Profile</a> {% endcomment %}
+                        {% comment %} </div> {% endcomment %}
+                      </div>
+                {% endfor %}
+
+              
+                <!--Card3-->
+            </div>
+        </div>
+                <!--Card4-->
+                <div class="row m-1">
+                    {% comment %} <div class="card col-sm-10"> {% endcomment %}
+                        {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+                        <div class="card-body ">
+                            {% comment %} {% extends "base.html" %} {% endcomment %}
+                            {% block content %}
+                            <h1>{{ mymember.lastname }}</h1>
+                            <span class="badge bg-primary"> <h1>Unkwon Face Detected </h1></span>
+                            <img src="{{mymember.profile_image.url}}" class="img-fluid col-4${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                            
+                                <span class="badge bg-info">Info</span>
+                                    {% comment %} {% endblock %} {% endcomment %}
+            
+                        </div>
+                    </div>
+                        {% comment %} {% block content %} {% endcomment %}
+                        {% comment %} <h1>CSV Data</h1> {% endcomment %}
+                        
+                    {% endblock %}
+            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+         
+                       </div>  
+    </div>
+    </div>
+</div>   
+
+
+
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; ALEx Ben
+    </footer>
+
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

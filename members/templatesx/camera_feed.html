@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Camera Feed</title>
+    <style>
+        @media (max-width: 768px) {
+            /* Adjust styles for smaller screens */
+            #video-feed {
+                width: 100%;
+                height: auto;
+            }
+            #navigation-menu {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Camera Feed</h1><video id="video-feed" width="640" height="480" controls autoplay onerror="handleError()"><source src="{% url 'camera_feed' %}" type="multipart/x-mixed-replace; boundary=frame"></video>
+    <div id="error-message" style="display: none;">Camera feed is unavailable</div>
+</body>
+<script>
+    function handleError() {
+        document.getElementById('video-feed').style.display = 'none';
+        document.getElementById('error-message').style.display = 'block';
+    }
+</script>
+
+</html>
+
+</html>
+</script>
+
+</html>
+
+</html>

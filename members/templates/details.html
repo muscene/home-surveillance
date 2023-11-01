@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ mymember.profile_image }} {{ mymember.lastname }}
+{% endblock %}
+
+
+{% block content %}
+  <h1>{{ .profile_image }} {{ mymember.profile_image }}</h1>
+  <img src="{{ mymember.profile_image.url }}" alt="{{ mymember.firstname }} {{ mymember.lastname }} Image">
+
+  <p>Phone {{ mymember.phone }}</p>
+  <p>Member since: {{ mymember.joined_date }}</p>
+  
+  <p>Back to <a href="/members/"> Members</a></p>
+  
+{% endblock %}
